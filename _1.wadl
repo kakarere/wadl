@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="https://broker-api.usaspending.gov"/>
+  <resources base="https://broker-api.usaspending.gov">
+    <resource path="v1/list_all_agencies" id="">
+      <doc xml:lang="en" title=""/>
+      <method name="GET" id="list_all_agencies">
+        <doc xml:lang="en" title="list_all_agencies"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v1/current_user" id="">
+      <doc xml:lang="en" title=""/>
+      <method name="GET" id="current_user">
+        <doc xml:lang="en" title="current_user"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="401">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="v1/max_login" id="max_login">
+      <doc xml:lang="en" title="max_login"/>
+      <param name="service" type="xs:string" required="true" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="ticket" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Method 1">
+        <doc xml:lang="en" title="Method 1"/>
+        <request>
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </request>
+        <response status="401">
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/x-www-form-urlencoded"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>
