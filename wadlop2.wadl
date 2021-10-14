@@ -1,0 +1,52 @@
+
+
+<application xmlns="http://wadl.dev.java.net/2009/02">
+   <doc xml:lang="en" title="https://broker-api.usaspending.gov"/>
+   <grammars>
+   
+   
+   
+   
+   <xs:schema targetNamespace="https://broker-api.usaspending.gov/v1/list_all_agencies" elementFormDefault="qualified" xmlns="https://broker-api.usaspending.gov/v1/list_all_agencies" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="listallagencies" type="_Response"/>
+   <xs:complexType name="_Response">
+      <xs:sequence>
+         <xs:element name="agency_list" type="agency_list"/>
+         <xs:element name="shared_agency_list" type="agency_list"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="list_e">
+      <xs:sequence>
+         <xs:element name="agency_name" type="xs:string"/>
+         <xs:element name="frec_code" type="xs:positiveInteger"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="agency_list">
+      <xs:sequence>
+         <xs:element name="e" type="list_e" maxOccurs="13"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema> 
+   
+   </grammars>
+   
+   
+   <resources base="https://broker-api.usaspending.gov">
+      <resource path="v1/list_all_agencies" id="v1/list_all_agencies">
+         <doc xml:lang="en" title="v1/list_all_agencies"/>
+         <method name="GET" id="list_all_agencies">
+            <doc xml:lang="en" title="list_all_agencies"/>
+            <request/>
+            <response status="200">
+               <representation mediaType="application/json" element="listallagencies" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            </response>
+            <response status="500">
+               <representation mediaType="application/json" element="list:Fault" xmlns:list="https://broker-api.usaspending.gov/v1/list_all_agencies"/>
+            </response>
+            <response status="">
+               <representation mediaType="appllication/xml"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
